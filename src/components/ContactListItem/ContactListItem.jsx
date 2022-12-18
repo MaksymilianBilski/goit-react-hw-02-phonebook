@@ -1,3 +1,5 @@
+import css from './ContactListItem.module.css'
+
 export const ContactListItem = ({ contact, onDelete }) => {
-    return (<><li > {contact.name}  {contact.number}</li><button type="button" onClick={() => onDelete(contact.id)}>Delete</button> </>)
+    return (<><li className={css.listItem}> {contact.name}:  {contact.number} <button className={css.button} type="button" onClick={() => onDelete(contact.id)}>DELETE</button></li> </>)
 }

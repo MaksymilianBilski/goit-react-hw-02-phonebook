@@ -51,9 +51,9 @@ export class App extends Component {
       <div>
         <Section title="Phonebook">
           <AddContacts onSubmit={this.onSubmit} />
-          <SearchForm value={this.state.filter} onChange={this.onChange} />
-          <ContactsList bookArray={this.state.contacts} filter={this.state.filter} onDelete={this.onDelete} />
         </Section>
+        <SearchForm value={this.state.filter} onChange={this.onChange} />
+        <ContactsList bookArray={this.state.contacts} filter={this.state.filter} onDelete={this.onDelete} />
       </div >
     );
   }
