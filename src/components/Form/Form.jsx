@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 
 export const AddContacts = ({ onSubmit }) => {
     return (
