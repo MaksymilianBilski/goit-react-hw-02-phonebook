@@ -1,9 +1,9 @@
-import { AddContacts } from "./Form/Form";
-import { Section } from "./Section/Section";
-import { SearchForm } from "./SearchByName/SearchForm";
-import { nanoid } from 'nanoid'
-import { ContactsList } from "./ContactsList/ContactsList";
-import React, { Component } from "react";
+import { AddContacts } from './Form/Form';
+import { Section } from './Section/Section';
+import { SearchForm } from './SearchByName/SearchForm';
+import { nanoid } from 'nanoid';
+import { ContactsList } from './ContactsList/ContactsList';
+import React, { Component } from 'react';
 
 export class App extends Component {
   constructor() {
@@ -13,13 +13,18 @@ export class App extends Component {
       filter: '',
     };
   }
-  onSubmit = (e) => {
-    e.preventDefault()
-    const form = e.currentTarget
-    const name = form.elements.name
-    const number = form.elements.number
+  onFormSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const name = form.elements.name;
+    const number = form.elements.number;
 
-    if (this.state.contacts.find(contact => contact.name === name.value && contact.number === number.value)) {
+    if (
+      this.state.contacts.find(
+        contact =>
+          contact.name === name.value && contact.number === number.value
+      )
+    ) {
       alert(`${name.value} is already in contacts`);
       return;
     }
@@ -33,28 +38,32 @@ export class App extends Component {
       contacts: [...prevState.contacts, contact],
     }));
 
-    form.reset()
-  }
+    form.reset();
+  };
 
-  onChange = evt => {
+  onFilterChange = evt => {
     this.setState({ filter: evt.target.value });
   };
 
-  onDelete = id => {
+  onContactDelete = id => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== id),
-    }))
-  }
+    }));
+  };
 
   render() {
     return (
       <div>
         <Section title="Phonebook">
-          <AddContacts onSubmit={this.onSubmit} />
+          <AddContacts onSubmit={this.onFormSubmit} />
         </Section>
-        <SearchForm value={this.state.filter} onChange={this.onChange} />
-        <ContactsList bookArray={this.state.contacts} filter={this.state.filter} onDelete={this.onDelete} />
-      </div >
+        <SearchForm value={this.state.filter} onChange={this.onFilterChange} />
+        <ContactsList
+          bookArray={this.state.contacts}
+          filter={this.state.filter}
+          onDelete={this.onContactDelete}
+        />
+      </div>
     );
   }
-};
+}
