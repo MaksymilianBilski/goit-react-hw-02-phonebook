@@ -1,14 +1,14 @@
-.label{
+.label {
     display: flex;
     flex-direction: column;
     margin: 40px 30px 0;
     grid-gap: 5px;
 }
 
-.input{
+.input {
     width: 160px;
 }
 
-.input:hover{
-        background-color: antiquewhite
+.input:hover {
+    background-color: antiquewhite
 }
