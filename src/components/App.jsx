@@ -6,23 +6,6 @@ import { ContactsList } from './ContactsList/ContactsList';
 import React, { Component } from 'react';
 
 export class App extends Component {
-  componentDidMount() {
-    console.log('tu zczytać stan z localstorage na pierwszym wejściu lub po');
-  }
-  componentDidUpdate(prevProps, prevState) {
-    console.log('prevs state: ' + JSON.stringify(prevState));
-    console.log('this state: ' + JSON.stringify(this.state));
-    if (prevState !== this.state) {
-      console.log('test');
-    }
-  }
-  shouldComponentUpdate(nextProps, nextState) {
-    console.log('prevs state: ' + JSON.stringify(nextState));
-    if (nextState === this.state) {
-      console.log('truee');
-    }
-    return false;
-  }
   constructor() {
     super();
     this.state = {
